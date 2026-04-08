@@ -9,6 +9,8 @@ prop = 3.3 / 65535
 v_out = sensor.read_u16() * prop
 temp = (100 * v_out) - 50  # gewijzigde berekening
 print(temp)
+led.on()
+input()
 
 #
 #for _ in range(5):

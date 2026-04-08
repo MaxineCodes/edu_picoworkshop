@@ -11,16 +11,25 @@ internal_led_pin = 25
 warning_led_pin = 15
 
 # Sensor pin
-sensor_pin = 4
+sensor_pin = 26
 
 # Initialiseren van de pinnen
 internal_led = machine.Pin(internal_led_pin, machine.Pin.OUT)
-warning_led = machine.machine.Pin(warning_led_pin, machine.Pin.OUT)
+warning_led = machine.Pin(warning_led_pin, machine.Pin.OUT)
+
+led = machine.Pin("LED", machine.Pin.OUT)
 
 # ADC voor de temperatuursensor
 adc = machine.ADC(machine.Pin(sensor_pin))
 
+
+while not connection.isconnected():
+    led.on()
+    print("not connected")
+
+
 while connection.isconnected():
+    print("connected!!!!")
     # Lees temperatuur
     raw_value = adc.read_u16()
     voltage = (raw_value / 65535) * 3.3
@@ -51,3 +60,5 @@ while connection.isconnected():
 
     # Wacht tot de volgende meting
     time.sleep(5)  # B.v. elke 5 seconden
+
+

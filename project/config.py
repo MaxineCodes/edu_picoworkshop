@@ -1,3 +1,5 @@
 WIFI_SSID = "LAPTOP-MAXINE"
 WIFI_PASSWORD = "picopico"
 SERVER = "192.168.137.1"
+PORT = 5000
+ENDPOINT = "/temperature"
